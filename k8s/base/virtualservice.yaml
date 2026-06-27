@@ -1,18 +1,18 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: __SERVICE_NAME__
+  name: billing-api
   labels:
-    app.kubernetes.io/name: __SERVICE_NAME__
+    app.kubernetes.io/name: billing-api
 spec:
   hosts:
-    - __SERVICE_NAME__.__ENVIRONMENT__.platform.ohanyere.internal
+    - billing-api.dev.platform.ohanyere.internal
   gateways:
     - istio-system/platform-gateway
   http:
     - route:
         - destination:
-            host: __SERVICE_NAME__
+            host: billing-api
             port:
               number: 80
           weight: 100
