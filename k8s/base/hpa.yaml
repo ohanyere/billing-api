@@ -1,14 +1,14 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: __SERVICE_NAME__
+  name: billing-api
   labels:
-    app.kubernetes.io/name: __SERVICE_NAME__
+    app.kubernetes.io/name: billing-api
 spec:
   scaleTargetRef:
     apiVersion: argoproj.io/v1alpha1
     kind: Rollout
-    name: __SERVICE_NAME__
+    name: billing-api
   minReplicas: 2
   maxReplicas: 5
   metrics:
